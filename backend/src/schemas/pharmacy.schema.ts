@@ -39,6 +39,9 @@ export class Pharmacy extends Document {
 
   @Prop({ required: true })
   longitude: number;
+
+  @Prop()
+  isOnDuty: boolean;
 }
 
 export const PharmacySchema = SchemaFactory.createForClass(Pharmacy);
