@@ -5,7 +5,7 @@ import {
   InternalServerErrorException,
 } from '@nestjs/common';
 import { CreatePharmacyDto } from './dto/createPharmacy';
-import { Pharmacy } from 'src/schemas/pharmacy.schema';
+import { Pharmacy } from '../schemas/pharmacy.schema';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { PipelineStage } from 'mongoose';
