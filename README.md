@@ -139,6 +139,48 @@ The API documentation is available at `http://localhost:3000/api` when running t
 - Expo Team for the mobile development platform
 - All contributors who have helped with the project
 
+## CI/CD Pipeline
+
+The project uses GitHub Actions for continuous integration and deployment. The pipeline is configured for the backend service with the following stages:
+
+### Backend Pipeline
+
+1. **Testing Stage**
+   - Runs on Ubuntu latest
+   - Sets up Node.js 18
+   - Installs dependencies
+   - Runs unit tests
+   - Performs ESLint checks
+
+2. **Build and Push Stage**
+   - Triggers after successful tests
+   - Only runs on main branch pushes
+   - Builds Docker image
+   - Pushes to Docker Hub
+   - Uses build cache for faster builds
+
+3. **Deployment Stage**
+   - Triggers after successful build
+   - Only runs on main branch pushes
+   - Deploys to production server via SSH
+   - Updates Docker container
+
+### Pipeline Triggers
+
+The pipeline is triggered on:
+- Push to main branch (affecting backend files)
+- Pull requests to main branch (affecting backend files)
+
+### Environment Requirements
+
+The following secrets need to be configured in GitHub:
+- `DOCKERHUB_USERNAME`: Docker Hub username
+- `DOCKERHUB_TOKEN`: Docker Hub access token
+- `DEPLOY_HOST`: Production server hostname
+- `DEPLOY_USER`: SSH username
+- `DEPLOY_KEY`: SSH private key
+
+
 ## Contact
 
 Your Name - [fatimazahra-cherkaoui](https://www.linkedin.com/in/fatimazahra-cherkaoui/)
