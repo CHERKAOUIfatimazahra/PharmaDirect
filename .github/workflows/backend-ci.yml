@@ -62,19 +62,19 @@ jobs:
         cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/pharmadirect-backend:buildcache
         cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/pharmadirect-backend:buildcache,mode=max
 
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  # deploy:
+    # needs: build-and-push
+    # runs-on: ubuntu-latest
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
-    steps:
-    - name: Deploy to production
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.DEPLOY_HOST }}
-        username: ${{ secrets.DEPLOY_USER }}
-        key: ${{ secrets.DEPLOY_KEY }}
-        script: |
-          cd /opt/pharmadirect
-          docker-compose pull backend
-          docker-compose up -d backend
+    # steps:
+    # - name: Deploy to production
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.DEPLOY_HOST }}
+    #     username: ${{ secrets.DEPLOY_USER }}
+    #     key: ${{ secrets.DEPLOY_KEY }}
+    #     script: |
+    #       cd /opt/pharmadirect
+    #       docker-compose pull backend
+    #       docker-compose up -d backend
