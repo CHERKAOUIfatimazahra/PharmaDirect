@@ -168,7 +168,7 @@ export class PharmacyController {
   @Roles('admin')
   async update(
     @Param('id') id: string,
-    @Body() updatePharmacyDto: UpdatePharmacyDto,
+    @Body() updatePharmacyDto: any,
   ): Promise<{ message: string; data: Pharmacy }> {
     const updatedPharmacy = await this.pharmacyService.updatePharmacy(
       id,
