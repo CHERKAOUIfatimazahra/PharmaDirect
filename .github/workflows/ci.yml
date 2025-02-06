@@ -38,8 +38,8 @@ jobs:
 
       # Construction de l'image Docker
       - name: Build Docker image
-        run: docker build -t cherkaoui97/pharmadirect:latest .
+        run: docker build -t cherkaoui97/pharmadirectbuild:latest .
 
       # Push de l'image sur Docker Hub
       - name: Push to Docker Hub
-        run: docker push cherkaoui97/pharmadirect:latest
+        run: docker push cherkaoui97/pharmadirectbuild:latest

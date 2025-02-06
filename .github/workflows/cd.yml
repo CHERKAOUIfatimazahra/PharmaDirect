@@ -14,12 +14,12 @@ jobs:
 
     steps:
       - name: Pull Docker image
-        run: sudo docker pull cherkaoui97/pharmadirect:latest
+        run: sudo docker pull cherkaoui97/pharmadirectbuild:latest
 
       - name: Ensure Old Docker Container is Stopped and Removed
         run: |
-          sudo docker stop pharmadirect-container || true
-          sudo docker rm -f pharmadirect-container || true
+          sudo docker stop pharmadirectbuild-container || true
+          sudo docker rm -f pharmadirectbuild-container || true
 
       - name: Check if port 3000 is in use
         run: |
@@ -38,5 +38,5 @@ jobs:
           echo "NODE_ENV=production" >> .env
 
       - name: Run Docker Container with .env
-        run: sudo docker run -d -p ${{ secrets.PORT }}:3000 --env-file .env --name pharmadirect-container cherkaoui97/pharmadirect
+        run: sudo docker run -d -p ${{ secrets.PORT }}:3000 --env-file .env --name pharmadirectbuild-container cherkaoui97/pharmadirectbuild
 
