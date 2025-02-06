@@ -38,5 +38,5 @@ jobs:
           echo "NODE_ENV=production" >> .env
 
       - name: Run Docker Container with .env
-        run: sudo docker run -d -p ${{ secrets.PORT }}:3000 --env-file .env --name pharmadirectbuild-container cherkaoui97/pharmadirectbuild
+        run: sudo docker run -d -p 3000:3000 --env-file .env --name pharmadirectbuild-container cherkaoui97/pharmadirectbuild
 
