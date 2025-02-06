@@ -39,3 +39,4 @@ jobs:
 
       - name: Run Docker Container with .env
         run: sudo docker run -d -p ${{ secrets.PORT }}:3000 --env-file .env --name pharmadirect-container cherkaoui97/pharmadirect
+
