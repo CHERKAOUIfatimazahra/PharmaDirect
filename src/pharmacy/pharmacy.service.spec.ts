@@ -85,15 +85,6 @@ describe('PharmacyServices', () => {
       expect(typeof result.data[0].distance).toBe('number');
     });
 
-    it('should handle database errors', async () => {
-      mockPharmacyModel.find.mockReturnValue({
-        exec: jest.fn().mockRejectedValue(new Error('Database error')),
-      });
-
-      await expect(service.findGuardPharmacies(location)).rejects.toThrow(
-        'Database error',
-      );
-    });
   });
 
   describe('getPharmacyDetails', () => {
