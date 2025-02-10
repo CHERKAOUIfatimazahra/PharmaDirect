@@ -189,14 +189,14 @@ describe('PharmacyServices', () => {
     it('should calculate distance between two points correctly', () => {
       // Access private method using any type
       const distance = (service as any).calculateDistance(
-        34.0522, // Los Angeles
+        34.0522,
         -118.2437,
-        40.7128, // New York
+        40.7128,
         -74.006,
       );
 
       // The distance between LA and NY is roughly 3935 km
-      expect(distance).toBeCloseTo(3935, -2); // Using -2 precision to allow for some variation
+      expect(distance).toBeCloseTo(3935, -2);
     });
 
     it('should return 0 for same coordinates', () => {
