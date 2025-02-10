@@ -43,3 +43,5 @@ jobs:
       # Push de l'image sur Docker Hub
       - name: Push to Docker Hub
         run: docker push cherkaoui97/pharmadirectbuild:latest
+
+        # test
